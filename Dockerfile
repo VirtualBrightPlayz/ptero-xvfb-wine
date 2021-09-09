@@ -1,4 +1,4 @@
-FROM    ghcr.io/pterodactyl/yolks:debian
+FROM    --platform=linux/amd64 debian:buster-slim
 
 LABEL   author="VirtualBrightPlayz" maintainer="virtualbrightplayz@gmail.com"
 
