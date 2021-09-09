@@ -8,10 +8,10 @@ ENV     DEBIAN_FRONTEND noninteractive
 # RUN     dpkg --add-architecture i386
 RUN     apt update
 RUN     apt install -y wget
-RUN     wget -nc https://dl.winehq.org/wine-builds/winehq.key
-RUN     apt-key add winehq.key
-RUN     mkdir -p /etc/apt/sources.list.d/
-RUN     echo "deb https://dl.winehq.org/wine-builds/debian/ buster main" > /etc/apt/sources.list.d/winesrc.list
+# RUN     wget -nc https://dl.winehq.org/wine-builds/winehq.key
+# RUN     apt-key add winehq.key
+# RUN     mkdir -p /etc/apt/sources.list.d/
+# RUN     echo "deb https://dl.winehq.org/wine-builds/debian/ buster main" > /etc/apt/sources.list.d/winesrc.list
 RUN     apt update
 RUN     apt upgrade -y
 RUN     apt install -y xvfb
