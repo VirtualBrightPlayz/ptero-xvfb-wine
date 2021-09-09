@@ -15,7 +15,7 @@ RUN     apt install -y wget
 RUN     apt update
 RUN     apt upgrade -y
 RUN     apt install -y xvfb
-RUN     apt install -y --install-recommends winehq-stable
+RUN     apt install -y --install-recommends wine
 
 
 USER    container
