@@ -6,6 +6,8 @@ ENV     DEBIAN_FRONTEND noninteractive
 
 # RUN     apt update -y
 # RUN     dpkg --add-architecture i386
+RUN     apt update
+RUN     apt install -y wget
 RUN     wget -nc https://dl.winehq.org/wine-builds/winehq.key
 RUN     apt-key add winehq.key
 RUN     mkdir -p /etc/apt/sources.list.d/
