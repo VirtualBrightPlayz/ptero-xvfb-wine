@@ -4,7 +4,7 @@ LABEL   author="VirtualBrightPlayz" maintainer="virtualbrightplayz@gmail.com"
 
 ENV     DEBIAN_FRONTEND noninteractive
 
-RUN     apt update -y
+# RUN     apt update -y
 RUN     dpkg --add-architecture i386
 RUN     wget -nc https://dl.winehq.org/wine-builds/winehq.key
 RUN     apt-key add winehq.key
