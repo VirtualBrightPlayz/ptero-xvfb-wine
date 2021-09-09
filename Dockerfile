@@ -18,6 +18,14 @@ RUN     apt install -y xvfb
 RUN     apt install -y --install-recommends wine32
 
 
+RUN     apt-get install -y cabextract
+RUN     wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
+RUN     chmod +x winetricks
+RUN     cp winetricks /usr/local/bin
+
+RUN     wineboot -u && winetricks -q dotnet452
+
+
 USER    container
 ENV     USER=container HOME=/home/container
 WORKDIR /home/container
