@@ -17,6 +17,7 @@ RUN     apt upgrade -y
 RUN     apt install -y xvfb
 RUN     apt install -y --install-recommends wine32
 
+ENV     WINEPREFIX=/home/container/.wine
 
 RUN     apt-get install -y cabextract
 RUN     wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
