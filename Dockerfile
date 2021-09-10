@@ -28,7 +28,7 @@ RUN     cp winetricks /usr/local/bin
 RUN     wineboot -u && winetricks -q dotnet452
 
 USER    container
-RUN     chown container:container /home/container/.wine -r
+# RUN     chown container:container /home/container/.wine -r
 ENV     USER=container HOME=/home/container
 WORKDIR /home/container
 
