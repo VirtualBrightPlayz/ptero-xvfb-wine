@@ -17,6 +17,7 @@ RUN     apt upgrade -y
 RUN     apt install -y xvfb
 RUN     apt install -y --install-recommends wine32
 
+RUN     mkdir -p /home/container/.wine
 ENV     WINEPREFIX=/home/container/.wine
 
 RUN     apt-get install -y cabextract
