@@ -14,7 +14,7 @@ RUN     apt install -y wget net-tools iproute2
 # RUN     echo "deb https://dl.winehq.org/wine-builds/debian/ buster main" > /etc/apt/sources.list.d/winesrc.list
 RUN     apt update
 RUN     apt upgrade -y
-RUN     apt install -y xvfb
+RUN     apt install -y xvfb pulseaudio
 RUN     apt install -y --install-recommends wine32
 
 RUN     mkdir -p /home/container/.wine
