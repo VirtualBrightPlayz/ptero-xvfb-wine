@@ -20,15 +20,18 @@ RUN     apt install -y --install-recommends wine32
 RUN     mkdir -p /home/container/.wine
 ENV     WINEPREFIX=/home/container/.wine
 
+RUN     wget -P /mono http://dl.winehq.org/wine/wine-mono/4.9.4/wine-mono-4.9.4.msi
+RUN     wineboot -u && msiexec /i /mono/wine-mono-4.9.4.msi
+RUN     rm -rf /mono/wine-mono-4.9.4.msi
+
 RUN     apt-get install -y cabextract
 RUN     wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 RUN     chmod +x winetricks
 RUN     cp winetricks /usr/local/bin
 
-RUN     wineboot -u && winetricks -q dotnet452
+# RUN     wineboot -u && winetricks -q dotnet452
 
 USER    container
-# RUN     chown container:container /home/container/.wine -r
 ENV     USER=container HOME=/home/container
 WORKDIR /home/container
 
