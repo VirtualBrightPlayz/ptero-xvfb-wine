@@ -7,9 +7,9 @@ ENV     DEBIAN_FRONTEND noninteractive
 # RUN     apt update -y
 RUN     dpkg --add-architecture i386
 RUN     apt update
-RUN     apt install -y wget net-tools iproute2
+RUN     apt install -y wget net-tools iproute2 add-apt-key
 RUN     wget -nc https://dl.winehq.org/wine-builds/winehq.key
-# RUN     apt-key add winehq.key
+RUN     apt-key add winehq.key
 # RUN     mkdir -p /etc/apt/sources.list.d/
 RUN     echo "deb https://dl.winehq.org/wine-builds/debian/ buster main" > /etc/apt/sources.list
 RUN     apt update
