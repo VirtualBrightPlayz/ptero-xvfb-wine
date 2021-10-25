@@ -15,7 +15,7 @@ RUN     echo "deb https://dl.winehq.org/wine-builds/debian/ buster main" > /etc/
 RUN     apt update
 RUN     apt upgrade -y
 # RUN     apt install -y xvfb pulseaudio
-RUN     apt install -y --install-recommends winehq-stable
+RUN     apt install -y --install-recommends wine-stable
 
 RUN     mkdir -p /home/container/.wine
 ENV     WINEPREFIX=/home/container/.wine
