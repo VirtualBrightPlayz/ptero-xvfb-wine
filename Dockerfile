@@ -7,7 +7,7 @@ ENV     DEBIAN_FRONTEND noninteractive
 # RUN     apt update -y
 RUN     dpkg --add-architecture i386
 RUN     apt update
-RUN     apt install -y wget net-tools iproute2 apt
+RUN     apt install -y wget net-tools iproute2 gnupg2
 RUN     wget -nc https://dl.winehq.org/wine-builds/winehq.key
 RUN     apt-key add winehq.key
 # RUN     mkdir -p /etc/apt/sources.list.d/
