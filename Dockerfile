@@ -10,10 +10,12 @@ RUN     apt update
 RUN     apt install -y wget net-tools iproute2 gnupg2 xvfb pulseaudio libfaudio0
 RUN     wget -nc https://dl.winehq.org/wine-builds/winehq.key
 RUN     apt-key add winehq.key
-# RUN     echo "deb https://dl.winehq.org/wine-builds/debian/ bullseye main" > /etc/apt/sources.list
+RUN     echo "deb https://dl.winehq.org/wine-builds/debian/ bullseye main" > /etc/apt/sources.list
+RUN     wget -O- -q https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10/Release.key | sudo apt-key add -
+RUN     echo "deb http://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10 ./" | sudo tee /etc/apt/sources.list.d/wine-obs.list
 RUN     apt update
 RUN     apt upgrade -y
-RUN     apt install -y --install-recommends wine
+RUN     apt install -y --install-recommends winehq-stable
 
 RUN     mkdir -p /home/container/.wine
 ENV     WINEPREFIX=/home/container/.wine
