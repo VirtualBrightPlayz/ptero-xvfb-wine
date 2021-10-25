@@ -1,4 +1,4 @@
-FROM    --platform=linux/amd64 debian:buster-slim
+FROM    --platform=linux/amd64 debian:bullseye-slim
 
 LABEL   author="VirtualBrightPlayz" maintainer="virtualbrightplayz@gmail.com"
 
@@ -10,9 +10,9 @@ RUN     apt update
 RUN     apt install -y wget net-tools iproute2 gnupg2 xvfb pulseaudio
 RUN     wget -nc https://dl.winehq.org/wine-builds/winehq.key
 RUN     apt-key add winehq.key
-RUN     echo "deb https://dl.winehq.org/wine-builds/debian/ buster main" > /etc/apt/sources.list
-RUN     wget -O- -q https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10/Release.key | apt-key add -
-RUN     echo "deb http://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10 ./" | tee /etc/apt/sources.list.d/wine-obs.list
+RUN     echo "deb https://dl.winehq.org/wine-builds/debian/ bullseye main" > /etc/apt/sources.list
+# RUN     wget -O- -q https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10/Release.key | apt-key add -
+# RUN     echo "deb http://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10 ./" | tee /etc/apt/sources.list.d/wine-obs.list
 RUN     apt update
 RUN     apt upgrade -y
 RUN     apt install -y winehq-stable
