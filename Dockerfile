@@ -1,4 +1,4 @@
-FROM    --platform=linux/amd64 debian:buster-slim
+FROM    --platform=linux/amd64 debian:bullseye-slim
 
 LABEL   author="VirtualBrightPlayz" maintainer="virtualbrightplayz@gmail.com"
 
@@ -7,7 +7,7 @@ ENV     DEBIAN_FRONTEND noninteractive
 # RUN     apt update -y
 RUN     dpkg --add-architecture i386
 RUN     apt update
-RUN     apt install -y wget net-tools iproute2 gnupg2 xvfb pulseaudio libfaudio0
+RUN     apt install -y wget net-tools iproute2 gnupg2 xvfb pulseaudio
 RUN     wget -nc https://dl.winehq.org/wine-builds/winehq.key
 RUN     apt-key add winehq.key
 # RUN     mkdir -p /etc/apt/sources.list.d/
