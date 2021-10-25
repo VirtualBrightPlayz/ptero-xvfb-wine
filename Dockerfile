@@ -16,7 +16,7 @@ RUN     dpkg --add-architecture i386
 RUN     apt update
 RUN     apt upgrade -y
 # RUN     apt install -y xvfb pulseaudio
-RUN     apt install -y --install-recommends winehq-stable
+RUN     apt install -y --install-recommends winehq-devel
 
 RUN     mkdir -p /home/container/.wine
 ENV     WINEPREFIX=/home/container/.wine
