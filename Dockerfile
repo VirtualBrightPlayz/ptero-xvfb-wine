@@ -8,14 +8,14 @@ ENV     DEBIAN_FRONTEND noninteractive
 RUN     dpkg --add-architecture i386
 RUN     apt update
 RUN     apt install -y wget net-tools iproute2
-# RUN     wget -nc https://dl.winehq.org/wine-builds/winehq.key
-# RUN     apt-key add winehq.key
+RUN     wget -nc https://dl.winehq.org/wine-builds/winehq.key
+RUN     apt-key add winehq.key
 # RUN     mkdir -p /etc/apt/sources.list.d/
-# RUN     echo "deb https://dl.winehq.org/wine-builds/debian/ buster main" > /etc/apt/sources.list.d/winesrc.list
+RUN     echo "deb https://dl.winehq.org/wine-builds/debian/ buster main" > /etc/apt/sources.list
 RUN     apt update
 RUN     apt upgrade -y
 RUN     apt install -y xvfb pulseaudio
-RUN     apt install -y --install-recommends wine32
+RUN     apt install -y --install-recommends winehq-stable
 
 RUN     mkdir -p /home/container/.wine
 ENV     WINEPREFIX=/home/container/.wine
