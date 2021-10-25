@@ -15,7 +15,7 @@ RUN     wget -O- -q https://download.opensuse.org/repositories/Emulators:/Wine:/
 RUN     echo "deb http://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10 ./" | tee /etc/apt/sources.list.d/wine-obs.list
 RUN     apt update
 RUN     apt upgrade -y
-RUN     apt install -y --install-recommends winehq-stable
+RUN     apt install -y winehq-stable
 
 RUN     mkdir -p /home/container/.wine
 ENV     WINEPREFIX=/home/container/.wine
