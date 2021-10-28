@@ -19,7 +19,7 @@ RUN     apt install -y ./libfaudio0_20.01-0~buster_amd64.deb
 RUN     apt install -y ./libfaudio0_20.01-0~buster_i386.deb
 RUN     apt update
 RUN     apt upgrade -y
-RUN     apt-get install -y --install-recommends winehq-development
+RUN     apt-get install -y --install-recommends winehq-devel
 
 RUN     mkdir -p /home/container/.wine
 ENV     WINEPREFIX=/home/container/.wine
