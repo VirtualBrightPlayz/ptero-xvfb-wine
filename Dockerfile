@@ -1,4 +1,4 @@
-FROM    --platform=linux/amd64 debian:buster
+FROM    --platform=linux/amd64 ubuntu
 
 LABEL   author="VirtualBrightPlayz" maintainer="virtualbrightplayz@gmail.com"
 
@@ -7,12 +7,13 @@ ENV     DEBIAN_FRONTEND noninteractive
 # RUN     apt update -y
 RUN     dpkg --add-architecture i386
 RUN     apt update
-RUN     apt install -y wget net-tools iproute2 gnupg2 xvfb pulseaudio apt-transport-https
+RUN     apt install -y wget net-tools iproute2 gnupg2 xvfb pulseaudio apt-transport-https software-properties-common
 # libfaudio0 aptitude
 RUN     wget -nc https://dl.winehq.org/wine-builds/winehq.key
 RUN     apt-key add winehq.key
 RUN     mkdir -p /etc/apt/sources.list.d/
-RUN     echo "deb https://dl.winehq.org/wine-builds/debian/ buster main" > /etc/apt/sources.list.d/winehq.list
+#RUN     echo "deb https://dl.winehq.org/wine-builds/debian/ buster main" > /etc/apt/sources.list.d/winehq.list
+RUN     add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
 RUN     wget -nc https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10/amd64/libfaudio0_20.01-0~buster_amd64.deb
 RUN     wget -nc https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10/i386/libfaudio0_20.01-0~buster_i386.deb
 RUN     apt install -y ./libfaudio0_20.01-0~buster_amd64.deb
