@@ -36,8 +36,8 @@ ENV     WINEPREFIX=/home/container/.wine
 
 # RUN     wineboot -u && winetricks -q dotnet452
 
-USER    container
-ENV     USER=container HOME=/home/container
+# USER    container
+ENV     HOME=/home/container
 WORKDIR /home/container
 
 COPY    ./entrypoint.sh /entrypoint.sh
