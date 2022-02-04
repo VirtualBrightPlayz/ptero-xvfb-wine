@@ -16,23 +16,23 @@ RUN     mkdir -p /etc/apt/sources.list.d/
 RUN     add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
 RUN     wget -nc https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10/amd64/libfaudio0_20.01-0~buster_amd64.deb
 RUN     wget -nc https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/Debian_10/i386/libfaudio0_20.01-0~buster_i386.deb
-RUN     apt install -y ./libfaudio0_20.01-0~buster_amd64.deb
-RUN     apt install -y ./libfaudio0_20.01-0~buster_i386.deb
+# RUN     apt install -y ./libfaudio0_20.01-0~buster_amd64.deb
+# RUN     apt install -y ./libfaudio0_20.01-0~buster_i386.deb
 RUN     apt update
 RUN     apt upgrade -y
-RUN     apt-get install -y --install-recommends winehq-devel
+RUN     apt-get install -y --install-recommends winehq-stable
 
 RUN     mkdir -p /home/container/.wine
 ENV     WINEPREFIX=/home/container/.wine
 
-RUN     wget -P /mono http://dl.winehq.org/wine/wine-mono/4.9.4/wine-mono-4.9.4.msi
-RUN     wineboot -u && msiexec /i /mono/wine-mono-4.9.4.msi
-RUN     rm -rf /mono/wine-mono-4.9.4.msi
+# RUN     wget -P /mono http://dl.winehq.org/wine/wine-mono/4.9.4/wine-mono-4.9.4.msi
+# RUN     wineboot -u && msiexec /i /mono/wine-mono-4.9.4.msi
+# RUN     rm -rf /mono/wine-mono-4.9.4.msi
 
-RUN     apt-get install -y cabextract
-RUN     wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
-RUN     chmod +x winetricks
-RUN     cp winetricks /usr/local/bin
+# RUN     apt-get install -y cabextract
+# RUN     wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
+# RUN     chmod +x winetricks
+# RUN     cp winetricks /usr/local/bin
 
 # RUN     wineboot -u && winetricks -q dotnet452
 
