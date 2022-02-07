@@ -58,7 +58,7 @@ RUN     cp winetricks /usr/local/bin
 RUN     wineboot -u && winetricks -q dotnet48
 
 RUN     adduser --disabled-password --home /home/container container
-RUN     chown container:container /home/container -r
+RUN     chown container:container /home/container -R
 USER    container
 ENV     USER=container HOME=/home/container
 WORKDIR /home/container
