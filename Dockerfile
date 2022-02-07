@@ -55,7 +55,7 @@ RUN     wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/
 RUN     chmod +x winetricks
 RUN     cp winetricks /usr/local/bin
 
-RUN     wineboot -u && winetricks -q dotnet452
+RUN     wineboot -u && winetricks -q dotnet48
 
 
 RUN     adduser --disabled-password --home /home/container container
