@@ -57,6 +57,8 @@ RUN     apt-get install -y --install-recommends winehq-stable
 
 # RUN     wineboot -u && winetricks -q dotnet452
 
+
+RUN     adduser --disabled-password --home /home/container container
 USER    container
 ENV     USER=container HOME=/home/container
 WORKDIR /home/container
