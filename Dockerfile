@@ -20,7 +20,7 @@ RUN     wget -nc https://download.opensuse.org/repositories/Emulators:/Wine:/Deb
 # RUN     apt install -y ./libfaudio0_20.01-0~buster_i386.deb
 RUN     apt update
 RUN     apt upgrade -y
-RUN     apt-get install -y --install-recommends winehq-stable
+RUN     apt-get install -y --install-recommends winehq-stable winbind
 
 RUN     mkdir -p /home/container/.wine
 ENV     WINEPREFIX=/home/container/.wine
