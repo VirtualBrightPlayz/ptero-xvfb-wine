@@ -22,8 +22,8 @@ RUN     apt update
 RUN     apt upgrade -y
 RUN     apt-get install -y --install-recommends winehq-stable
 
-# RUN     mkdir -p /home/container/.wine
-# ENV     WINEPREFIX=/home/container/.wine
+RUN     mkdir -p /home/container/.wine
+ENV     WINEPREFIX=/home/container/.wine
 
 # RUN     mkdir -p /etc/X11/xorg.conf.d/
 # RUN     echo \
@@ -57,8 +57,8 @@ RUN     cp winetricks /usr/local/bin
 
 RUN     wineboot -u && winetricks -q dotnet48
 
-
 RUN     adduser --disabled-password --home /home/container container
+RUN     chown container:container /home/container -r
 USER    container
 ENV     USER=container HOME=/home/container
 WORKDIR /home/container
