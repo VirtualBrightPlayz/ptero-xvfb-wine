@@ -59,6 +59,7 @@ RUN     cp winetricks /usr/local/bin
 
 # RUN     echo "git-user:x:$(id -u):$(id -g):Git User:/tmp:/bin/bash" > /etc/passwd
 
+RUN     useradd -r -u $(id -u) -g $(id -g) git-user
 RUN     adduser --disabled-password --home /home/container container
 RUN     chown container:container /home/container -R
 USER    container
