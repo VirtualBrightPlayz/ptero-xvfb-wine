@@ -46,16 +46,16 @@ ENV     WINEPREFIX=/home/container/.wine
 #                     EndSubSection \
 #             EndSection > /etc/X11/xorg.conf.d/10-headless.conf
 
-RUN     wget -P /mono http://dl.winehq.org/wine/wine-mono/4.9.4/wine-mono-4.9.4.msi
-RUN     wineboot -u && msiexec /i /mono/wine-mono-4.9.4.msi
-RUN     rm -rf /mono/wine-mono-4.9.4.msi
+#RUN     wget -P /mono http://dl.winehq.org/wine/wine-mono/4.9.4/wine-mono-4.9.4.msi
+#RUN     wineboot -u && msiexec /i /mono/wine-mono-4.9.4.msi
+#RUN     rm -rf /mono/wine-mono-4.9.4.msi
 
 RUN     apt-get install -y cabextract
 RUN     wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 RUN     chmod +x winetricks
 RUN     cp winetricks /usr/local/bin
 
-RUN     wineboot -u && winetricks -q dotnet48
+# RUN     wineboot -u && winetricks -q dotnet48
 
 RUN     adduser --disabled-password --home /home/container container
 RUN     chown container:container /home/container -R
