@@ -57,9 +57,9 @@ RUN     cp winetricks /usr/local/bin
 
 # RUN     wineboot -u && winetricks -q dotnet48
 
-RUN     echo "git-user:x:$(id -u):$(id -g):Git User:/tmp:/bin/bash" > /etc/passwd
+# RUN     echo "git-user:x:$(id -u):$(id -g):Git User:/tmp:/bin/bash" > /etc/passwd
 
-# RUN     adduser --disabled-password --home /home/container container
+RUN     adduser --disabled-password --home /home/container container
 RUN     chown container:container /home/container -R
 USER    container
 ENV     USER=container HOME=/home/container
