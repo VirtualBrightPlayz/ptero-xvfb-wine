@@ -8,7 +8,7 @@ ENV     DEBIAN_FRONTEND noninteractive
 RUN     dpkg --add-architecture i386
 RUN     apt update
 RUN     apt install -y wget net-tools iproute2 gnupg2 xvfb pulseaudio apt-transport-https software-properties-common lib32gcc1 sudo xserver-xorg-video-dummy python3 libfreetype6:i386 libfreetype6 git git-lfs openssh-client
-RUN     apt-get remove winbind && sudo apt-get install winbind
+RUN     apt-get remove winbind && apt-get install winbind
 # libfaudio0 aptitude
 RUN     wget -nc https://dl.winehq.org/wine-builds/winehq.key
 RUN     apt-key add winehq.key
